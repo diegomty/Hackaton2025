@@ -3,4 +3,7 @@
     <vehicle id="veh0" type="car" depart="0">
         <route edges="E1 E2 E3 E4"/>
     </vehicle>
+    <vehicle id="veh1" type="car" depart="5">
+        <route edges="E5 E6"/>
+    </vehicle>
 </routes>

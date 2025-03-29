@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+
+    <!-- Definición de tipos de vehículos -->
+    <vType id="car" accel="2.6" decel="4.5" sigma="0.5" length="5.0" maxSpeed="50.0"/>
+    <vType id="bus" accel="1.5" decel="3.0" sigma="0.3" length="12.0" maxSpeed="40.0"/>
+    <vType id="truck" accel="1.3" decel="2.5" sigma="0.4" length="15.0" maxSpeed="35.0"/>
+
+    <!-- Añade en routes.rou.xml -->
+<vType id="autonomous" vClass="passenger" carFollowModel="IDM" 
+       lcStrategic="1.0" lcCooperative="0.9" lcSpeedGain="1.3" 
+       lcKeepRight="0.5" minGap="2.0" sigma="0.1"/>
+
+<flow id="av_flow" type="autonomous" route="ruta1" begin="0" end="3600" number="15" 
+      departLane="random" departSpeed="max">
+    <param key="has.rerouting.device" value="true"/>
+</flow>
+
+    <!-- Definición de rutas -->
+    <route id="ruta1" edges=":10043123782_0 :10048001950_0 :10048001951_0"/>
+    <route id="ruta2" edges=":10658864342_1 :10658864344_0 :10660516194_0"/>
+    <route id="ruta3" edges=":12190707114_1 :12192130433_1 :12192130441_0"/>
+    <route id="ruta4" edges=":12547101443_1 :12547101444_0 :12547101448_1"/>
+
+    <!-- Generación de vehículos para cada ruta -->
+    <!-- Ruta 1 - 50 vehículos tipo carro -->
+    <flow id="flow_ruta1" type="car" route="ruta1" begin="0" end="3600" number="50" departPos="base" departSpeed="max"/>
+
+    <!-- Ruta 2 - 30 vehículos tipo bus -->
+    <flow id="flow_ruta2" type="bus" route="ruta2" begin="0" end="3600" number="30" departPos="base" departSpeed="max"/>
+
+    <!-- Ruta 3 - 20 vehículos tipo camión -->
+    <flow id="flow_ruta3" type="truck" route="ruta3" begin="0" end="3600" number="20" departPos="base" departSpeed="max"/>
+
+    <!-- Ruta 4 - 50 vehículos mezclados -->
+    <flow id="flow_ruta4_car" type="car" route="ruta4" begin="0" end="3600" number="25" departPos="base" departSpeed="max"/>
+    <flow id="flow_ruta4_bus" type="bus" route="ruta4" begin="0" end="3600" number="15" departPos="base" departSpeed="max"/>
+    <flow id="flow_ruta4_truck" type="truck" route="ruta4" begin="0" end="3600" number="10" departPos="base" departSpeed="max"/>
+
+    <!-- Vehículos individuales con tiempos específicos -->
+    <vehicle id="veh1" type="car" route="ruta1" depart="120" departPos="random" departSpeed="max"/>
+    <vehicle id="veh2" type="bus" route="ruta2" depart="240" departPos="random" departSpeed="max"/>
+    <vehicle id="veh3" type="truck" route="ruta3" depart="360" departPos="random" departSpeed="max"/>
+
+</routes>

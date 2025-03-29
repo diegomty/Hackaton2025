@@ -17,7 +17,7 @@ fgbg = cv2.createBackgroundSubtractorMOG2(history=500,
 
 # Crear ventanas de control
 cv2.namedWindow("Deteccion")
-cv2.createTrackbar("VarThreshold", "Deteccion", 50, 200, lambda x: None)
+cv2.createTrackbar("VarThreshold", "Deteccion", 50, 200, lambda x: None)  
 cv2.createTrackbar("AreaMin", "Deteccion", 500, 2000, lambda x: None)
 
 while True:

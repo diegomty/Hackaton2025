@@ -1,8 +1,7 @@
-<routes>
-    <vType id="car" accel="2.6" decel="4.5" sigma="0.5" length="5" maxSpeed="13.89"/>
-    
-    <route id="ruta_principal" edges="E1 E2 E3"/>
-    
-    <vehicle id="v0" type="car" route="ruta_principal" depart="0"/>
-    <vehicle id="v1" type="car" route="ruta_principal" depart="5"/>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="car" accel="2.6" decel="4.5" sigma="0.5" length="5" maxSpeed="16.67" color="1,1,0"/>
+    <route id="circuito" edges="E1 E2 E3 E4"/>
+    <vehicle id="veh0" type="car" route="circuito" depart="0"/>
+    <vehicle id="veh1" type="car" route="circuito" depart="5"/>
+    <vehicle id="veh2" type="car" route="circuito" depart="10"/>
 </routes>
